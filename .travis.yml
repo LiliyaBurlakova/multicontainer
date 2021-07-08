@@ -6,7 +6,7 @@ before_install:
   - docker build -t mydockeridlili/multicontainer -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true mydockeridlili/react-test npm test
+  - docker run -e CI=true mydockeridlili/multicontainer npm test
 
 after_success:
   - docker build -t mydockeridlili/multicontainer ./client
