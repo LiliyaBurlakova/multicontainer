@@ -3,16 +3,16 @@ services:
   - docker
 
 before_install:
-  - docker build -t mydockeridlili/multicontainer -f Dockerfile.dev .
+  - docker build -t LiliyaBurlakova/multicontainer -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true mydockeridlili/react-test npm test
+  - docker run -e CI=true LiliyaBurlakova/react-test npm test
 
 after_success:
-  - docker build -t mydockeridlili/multicontainer ./client
-  - docker build -t mydockeridlili/multicontainer ./nginx
-  - docker build -t mydockeridlili/multicontainer ./server
-  - docker build -t mydockeridlili/multicontainer ./worker 
+  - docker build -t LiliyaBurlakova/multicontainer ./client
+  - docker build -t LiliyaBurlakova/multicontainer ./nginx
+  - docker build -t LiliyaBurlakova/multicontainer ./server
+  - docker build -t LiliyaBurlakova/multicontainer ./worker 
   # Login in the docker CLI
   - echo "$DOCKER_PASSWOER" | docker login -u "DOCKER_ID" --password-stdin
   - docker push mydockerid/multicontainer-client
